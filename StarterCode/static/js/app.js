@@ -70,14 +70,20 @@ d3.json("samples.json").then(function(database){
             }
           }];          
           
-        //   var layout = {
-        //     title: 'Marker Size',
-        //     showlegend: false,
-        //     height: 600,
-        //     width: 600
-        //   };
+          let layout = {
+            xaxis: {
+                title: {
+                  text: 'OTU ID',
+                  font: {                
+                    size: 18,
+                  }
+                },
+              },
+            hovermode: "closest",
+          };
           
-          Plotly.newPlot('bubble', data);
+          
+          Plotly.newPlot('bubble', data, layout);
     }
 
     let index = 0
