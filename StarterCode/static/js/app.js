@@ -127,3 +127,51 @@ d3.json("samples.json").then(function(database){
 
 })
 
+
+
+
+
+
+
+
+
+var data = [{
+  type: "pie",
+  showlegend: false,
+  hole: 0.4,
+  rotation: 90,
+  values: [100 / 9, 100 / 9, 100 / 9, 100 / 9, 100 / 9, 100 / 9, 100 / 9, 100 / 9, 100 / 9, 100],
+  text: ["0-1", "1-2", "2-3", "3-4", "4-5", "5-6", "6-7", "7-8", "8-9", ""],
+  direction: "clockwise",
+  textinfo: "text",
+  textposition: "inside",
+  marker: {
+    colors: ["aqua", "aquamarine", "chartreuse",
+        "chocolate", "bisque", "black", "blanchedalmond", "blue",
+        "blueviolet", "white"]
+  },
+}];
+
+var layout = {
+    margin: { t: 80, b: 0, l: 0, r: 0 },
+  shapes:[{
+      type: 'line',
+      x0: .5,
+      y0: 0.5,
+      x1: .3,      
+      y1: .6,
+      line: {
+        color: 'black',
+        width: 8
+      }
+    }],
+    hovermode: false,
+  title: 'Belly Button Washing Frequency',
+};
+
+
+Plotly.plot("gauge", data, layout, {staticPlot: true});
+
+
+
+
