@@ -94,17 +94,89 @@ d3.json("samples.json").then(function(database){
 
           for(x of metadata_info){            
             selection.append("li").text(`${x[0]}: ${x[1]}`).append("br")
-          }    
+          }
+          
+          
+
+          // This is the code to create a GAUGE CHART
+
+            data = [{
+            type: "pie",
+            showlegend: false,
+            hole: 0.4,
+            rotation: 90,
+            values: [100 / 9, 100 / 9, 100 / 9, 100 / 9, 100 / 9, 100 / 9, 100 / 9, 100 / 9, 100 / 9, 100],
+            text: ["0-1", "1-2", "2-3", "3-4", "4-5", "5-6", "6-7", "7-8", "8-9", ""],
+            direction: "clockwise",
+            textinfo: "text",
+            textposition: "inside",
+            marker: {
+                colors: ["aqua", "aquamarine", "chartreuse",
+                    "chocolate", "bisque", "black", "blanchedalmond", "blue",
+                    "blueviolet", "white"]
+            },
+            }];
+
+            let wash_freq = database.metadata[index]["wfreq"]
+            var x1_value = 0
+            var y1_value = 0
+            
+                if (wash_freq <= 1){
+                    x1_value = .25
+                    y1_value = .55
+                }else if (wash_freq > 1 && wash_freq <= 2){
+                    x1_value = .25
+                    y1_value = .65
+                }else if (wash_freq > 2 && wash_freq <= 3){
+                    x1_value = .29
+                    y1_value = .76
+                }else if (wash_freq > 3 && wash_freq <= 4){
+                    x1_value = .4
+                    y1_value = .76
+                }else if (wash_freq > 4 && wash_freq <= 5){
+                    x1_value = .5
+                    y1_value = .76
+                }else if (wash_freq > 5 && wash_freq <= 6){
+                    x1_value = .6
+                    y1_value = .76
+                }else if (wash_freq > 6 && wash_freq <= 7){
+                    x1_value = .67
+                    y1_value = .73
+                }else if (wash_freq > 7 && wash_freq <= 8){
+                    x1_value = .75
+                    y1_value = .65
+                }else if (wash_freq > 8 && wash_freq <= 9){
+                    x1_value = .83
+                    y1_value = .55
+                }
+
+            layout = {
+                    margin: { t: 80, b: 0, l: 0, r: 0 },
+                shapes:[{
+                    type: 'line',
+                    x0: .5,
+                    y0: 0.5,
+                    x1: x1_value,      
+                    y1: y1_value,
+                    line: {
+                        color: 'red',
+                        width: 10
+                    }
+                    }],
+                    hovermode: false,
+                title: 'Belly Button Washing Frequency (Scrubs per week)',
+                };
+
+            Plotly.newPlot("gauge", data, layout, {staticPlot: false});
     }
 
-    let index = 0
+    var index = 0
     graph_for_subject_id()
 
 
 
 
-    // This function is to program the action that takes place after the dropdown
-    // menu is changed by the user
+    // This function is to program the action that takes place after the dropdown menu is changed by the user
 
     d3.select("#selDataset").on("change",function(){        
                
@@ -114,7 +186,6 @@ d3.json("samples.json").then(function(database){
         for(let i = 0, n = database.names.length; i<n; i++){
             if (database.names[i]===id_selected){
                 index = i
-                // console.log(`INDEX: ${index}`)
                 break
             }
         }          
@@ -134,43 +205,6 @@ d3.json("samples.json").then(function(database){
 
 
 
-
-var data = [{
-  type: "pie",
-  showlegend: false,
-  hole: 0.4,
-  rotation: 90,
-  values: [100 / 9, 100 / 9, 100 / 9, 100 / 9, 100 / 9, 100 / 9, 100 / 9, 100 / 9, 100 / 9, 100],
-  text: ["0-1", "1-2", "2-3", "3-4", "4-5", "5-6", "6-7", "7-8", "8-9", ""],
-  direction: "clockwise",
-  textinfo: "text",
-  textposition: "inside",
-  marker: {
-    colors: ["aqua", "aquamarine", "chartreuse",
-        "chocolate", "bisque", "black", "blanchedalmond", "blue",
-        "blueviolet", "white"]
-  },
-}];
-
-var layout = {
-    margin: { t: 80, b: 0, l: 0, r: 0 },
-  shapes:[{
-      type: 'line',
-      x0: .5,
-      y0: 0.5,
-      x1: .3,      
-      y1: .6,
-      line: {
-        color: 'black',
-        width: 8
-      }
-    }],
-    hovermode: false,
-  title: 'Belly Button Washing Frequency',
-};
-
-
-Plotly.plot("gauge", data, layout, {staticPlot: true});
 
 
 
