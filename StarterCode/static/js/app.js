@@ -38,7 +38,7 @@ d3.json("samples.json").then(function(database){
                 }
         }  
         
-        // This is the code to create a bar chart
+        // This is the code to create a BAR CHART
 
         let data = [{
               x: top_10_otus_sample_values,
@@ -82,8 +82,19 @@ d3.json("samples.json").then(function(database){
             hovermode: "closest",
           };
           
-          
+
           Plotly.newPlot('bubble', data, layout);
+
+        //   This is the code to add the metadata into the website
+
+          let selection = d3.select("#sample-metadata")
+          selection.selectAll("li").remove()
+
+          metadata_info = Object.entries(database.metadata[index])
+
+          for(x of metadata_info){            
+            selection.append("li").text(`${x[0]}: ${x[1]}`).append("br")
+          }    
     }
 
     let index = 0
