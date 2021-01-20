@@ -119,39 +119,40 @@ d3.json("samples.json").then(function(database){
 
             let wash_freq = database.metadata[index]["wfreq"]
             var x1_value = 0
-            var y1_value = 0
-            
+            var y1_value = 0       
+
                 if (wash_freq <= 1){
                     x1_value = .25
                     y1_value = .55
-                }else if (wash_freq > 1 && wash_freq <= 2){
+                }else if (wash_freq <= 2){
                     x1_value = .25
                     y1_value = .65
-                }else if (wash_freq > 2 && wash_freq <= 3){
+                }else if (wash_freq <= 3){
                     x1_value = .29
                     y1_value = .76
-                }else if (wash_freq > 3 && wash_freq <= 4){
+                }else if (wash_freq <= 4){
                     x1_value = .4
                     y1_value = .76
-                }else if (wash_freq > 4 && wash_freq <= 5){
+                }else if (wash_freq <= 5){
                     x1_value = .5
                     y1_value = .76
-                }else if (wash_freq > 5 && wash_freq <= 6){
+                }else if (wash_freq <= 6){
                     x1_value = .6
                     y1_value = .76
-                }else if (wash_freq > 6 && wash_freq <= 7){
+                }else if (wash_freq <= 7){
                     x1_value = .67
                     y1_value = .73
-                }else if (wash_freq > 7 && wash_freq <= 8){
+                }else if (wash_freq <= 8){
                     x1_value = .75
                     y1_value = .65
-                }else if (wash_freq > 8 && wash_freq <= 9){
+                }else if (wash_freq <= 9){
                     x1_value = .83
                     y1_value = .55
                 }
 
+
             layout = {
-                    margin: { t: 80, b: 0, l: 0, r: 0 },
+                    margin: { t: 0, b: 0, l: 0, r: 0 },
                 shapes:[{
                     type: 'line',
                     x0: .5,
@@ -163,8 +164,7 @@ d3.json("samples.json").then(function(database){
                         width: 10
                     }
                     }],
-                    hovermode: false,
-                title: 'Belly Button Washing Frequency (Scrubs per week)',
+                hovermode: false,
                 };
 
             Plotly.newPlot("gauge", data, layout, {staticPlot: false});
