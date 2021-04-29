@@ -1,5 +1,8 @@
-# Interactive-Visualizations
-This is the repo for the HWK Interactive-Visualizations-and-Dashboards
+# Belly Button Biodiversity
 
-The URL of my deployed website is:
+This is a fun project where it is presented the results of the samples taken from 153 persons' Belly Button microbes, as a way to see what are the most commun microbial species that colonize human navels.
+●	Role: Author/Owner
+●	Tools: JavaScript, Plotly.js
+
+You can find the deployed website in here:
 https://trezeget-1.github.io/Interactive-Visualizations/
