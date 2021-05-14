@@ -1,6 +1,6 @@
 # Belly Button Biodiversity
 
-This is a project where it is presented the results of the samples taken from 153 persons' Belly Button microbes as a way to see what are the most commun microbial species that colonize human navels.
+This is a project where it is presented the results of the samples taken from 153 persons' Belly Button microbes to understand what are the most common microbial species that colonize human navels.
 ●	Role: Author/Owner
 ●	Tools: JavaScript, Plotly.js
 
